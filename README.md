@@ -110,3 +110,138 @@ return MaterialApp(
 
 CSS의 모든 속성을 다 기억하고 있지 않듯이 위젯을 다 기억할 필요는 없다.<br>
 문서를 찾아봐도 되고, VSC에 Extension이 보여주는 힌트를 볼 수도 있다.
+
+# **1. 코인 앱**
+
+## **1-1. 헤더에 사용된 위젯**
+
+### **Text**
+글자를 나타낼 때 쓰는 위젯이다.<br>
+style 파라미터가 있는데 TextStyle 위젯을 통해 글자색, 폰트 사이즈, 굵기를 정할 수 있다.
+
+### **Color / Colors**
+글자색이나 배경색 등을 정할 때 쓰는 위젯이다.<br>
+Color 위젯을 쓰면 커스텀 색상을 정할 수 있고, Colors 위젯을 쓰면 지정돼 있는 다양한 색상들을 사용할 수 있다.
+
+### **Column, Row**
+Column과 Row이라는 위젯이 있는데 CSS에 display: flex에 flex-direction: column과 row와 비슷하다.<br>
+children 파라미터에 리스트 형태로 요소들을 넘기면 된다.
+
+CSS에 justify-content나 align-items 속성은 각각 mainAxisAlignment와 crossAxisAlignment 파라미터와 같다.
+
+### **SizedBox**
+사이즈가 있는 박스를 만들때 쓰는 위젯이다.<br>
+간격을 추가하거나 할 때 쓸 수 있다.
+
+### **Padding**
+패딩을 줄 수 있는 위젯이다.<br>
+padding 파라미터에 EdgeInsetsGeometry와 EdgeInsetsGeometry를 상속받은 위젯을 넘길 수 있다.
+
+### **EdgeInsets**
+패딩에 값을 줄 때 사용할 수 있다.<br>
+EdgeInsets.all()은 모든 방향에 값을 줄 수 있고,<br>
+EdgeInsets.only()는 각각의 방향에 값을 지정해줄 수 있고,<br>
+EdgeInsets.symmetric()는 수평, 수직 방향에 값을 줄 수 있다.
+
+## **1-2. 개발자 도구**
+VSC에서 오른쪽 위에 디버깅 시작하기를 누르면 위에
+
+![](./images/1-2.1.png)
+
+메뉴가 뜨는데 제일 오른쪽에 돋보기 + 플러터 로고 버튼을 누르면 개발자 도구 창이 뜬다.<br>
+여기서는 위젯 트리, 위젯 속성들을 간편하게 볼 수 있고 수정도 할 수 있다.
+
+창에 왼쪽 위에
+
+![](./images/1-2.2.png)
+
+Toggle select widget mode 라는 버튼이 있는데 누르면 요소를 클릭해서 살펴볼 수 있다.
+<br>
+그 오른쪽엔
+
+![](./images/1-2.3.png)
+
+메뉴들이 보이는데 왼쪽에서 두번째 버튼을 누르면 레이아웃 가이드라인을 볼 수 있다.
+
+## **1-3. 버튼 섹션에 사용된 위젯**
+
+### **Container**
+Container 위젯은 html에 div태그 같은거다.<br>
+decoration 파라미터로 이 위젯을 꾸밀 수 있고 Decoration 위젯이나 이 위젯을 상속 받은 위젯이 들어올 수 있다.
+
+### **BoxDecoration**
+Decoration 위젯을 상속받은 위젯으로 Container 위젯을 꾸밀 수 있다.<br>
+BoxDecoration으로 배경색을 지정하거나 모서리에 둥근 정도를 지정할 수 있다.
+
+## **1-4. 플러터 constant 경고 세팅**
+VSC에서 위젯들을 사용해서 작업하다보면 몇몇 위젯에 파란줄로 const를 붙여서 상수로 만들라는 경고가 뜬다.
+
+settings.json에서
+```json
+"editor.codeActionsOnSave": {
+    "source.fixAll": true
+}
+```
+위 옵션을 넣으면 저장할 때 VSC가 자동으로 const를 붙여서 해결해준다.
+
+추가로
+```json
+"dart.previewFlutterUiGuides": true
+```
+설정을 추가해주면
+
+![](./images/1-4.1.png)
+
+처럼 선으로 트리를 그려준다.
+
+## **1-5. 코드 액션**
+VSC에서 위젯을 클릭하면
+
+![](./images/1-5.1.png)
+
+왼쪽에 전구가 코드 작업 보이기 버튼이 보이는데 추가 작업란에 다양한 리펙토링 옵션들을 보여준다.<br>
+Text 위젯같은 경우엔
+
+![](./images/1-5.2.png)
+
+이러한 추가 작업들을 보여주는데 패딩 위젯으로 감싸거나 컨테이너 위젯으로 감싸는 등의 옵션들이 존재한다.
+
+## **1-6. Reusable Widget**
+재사용하고 싶은 위젯을 클릭하고 코드 작업 보이기 버튼을 누르면
+
+![](./images/1-6.1.png)
+
+추출에 Extract Widget 옵션이 존재한다.
+
+Extract Widget 옵션을 누르면 위젯 이름을 입력하는 창이 나오고 입력하고 엔터를 누르면 밑에 별도의 위젯이 하나 만들어진다.
+
+새로운 dart 파일을 만들어서 위젯을 따로 묶을 수 있다.<br>
+리액트, 스벭트에 컴포넌트처럼 쓸 수 있는 것이다.
+
+스벨트와 비슷하게 따로 export 같은 구문없이 import로 불러오기만 하면 된다.
+
+## **1-7 아이콘 사용하기**
+
+### **Icon**
+Icon 위젯으로 아이콘을 사용할 수 있고, 첫번재 인자에 IconData 위젯이나 이 위젯을 상속받은 위젯이 들어온다.<br>
+그 중에 Icons 라는 위젯이 있는데 다양한 아이콘들을 제공한다.
+
+VSC에선 Icons에 있는 다양한 아이콘들을 힌트로 보여준다.
+
+### **Transform**
+Transform 위젯은 현재 위치에서 차지하는 공간은 바뀌지 않고 외형만 바꿀 때 사용한다.<br>
+CSS에서 position absolute인 상태에서 위치나 크기를 변형시킨 것과 같은 느낌이다.
+
+Transform.scale을 사용하면 scale 파라미터로 크기를 조절할 수 있다.<br>
+Transform.translate를 사용하면 offset 파라미터로 위치를 조정할 수 있다.
+
+### **Container(clipBehavior:)**
+Container에 clipBehavior는 오버플로우된 요소들을 어떻게 처리할지 나타내는 파라미터다.<br>
+clipBehavior에 Clip.hardEdge 위젯을 주면 오버플로우된 부분이 사라진다.
+
+### **private**
+만약에 클래스에 프로퍼티나 메소드의 접근 제한자를 private으로 만들고 싶다면 앞에 _를 붙이면 된다.
+
+### **스크롤뷰 만들기**
+SingleChildScrollView를 사용하면 스크롤 가능한 뷰를 만들어준다.<br>
+그냥 감싸기만 하면 된다.
