@@ -274,3 +274,13 @@ setState(() {
 ```
 
 그런데 가독성을 위해 setState함수 내에 넣는게 더 낫다.
+
+## **2-3. BuildContext**
+
+### **MaterialApp(theme:)**
+MaterialApp에 theme 파라미터는 애플리케이션의 스타일 시트를 지정할 때 사용하고 ThemeData 위젯이 들어간다.<br>
+만약 자식 위젯이 부모 위젯에 theme 데이터에 접근할 때 Theme.of(context)로 접근할 수 있다.<br>
+이때 build 메서드의 파라미터인 BuildContext가 쓰인다.
+
+BuildContext는 build 메서드에 기본 파라미터로, 자식 위젯이 부모 위젯의 context에 접근해 Theme 등 다양한 정보를 가져올 때 사용한다.<br>
+기본적으로 가까운 부모 위젯에 접근한다.
