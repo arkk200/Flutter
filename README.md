@@ -255,3 +255,22 @@ VSC에서 st만 쓰면 Statefull, Stateless 위젯을 상속받은 클래스를 
 플러터에서 state는 클래스에 프로퍼티로 구현한다.
 
 IconButton이라는 위젯이 있는 이 위젯은 onPressed 파라미터로 state 변경 함수와 icon 파라미터로 Widget을 받는다.
+
+## **2-2. SetState**
+setState 함수는 State 클래스에게 데이터가 변경되었다고 알리는 함수이다.
+
+![](./images/2-2.1.png)
+
+setState를 쓰지 않으면 데이터가 변경되어도 반영이 되지 않는다.
+
+setState를 호출만 해줘도 데이터 변경이 반영되자만, setState함수 안에 익명함수에 state 변경 코드를 넣어도 된다.
+```dart
+setState(() {});
+counter = counter + 1;
+// 위아래 둘 다 작동함
+setState(() {
+    counter = counter + 1;
+});
+```
+
+그런데 가독성을 위해 setState함수 내에 넣는게 더 낫다.
