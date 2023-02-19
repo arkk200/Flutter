@@ -284,3 +284,16 @@ MaterialApp에 theme 파라미터는 애플리케이션의 스타일 시트를 �
 
 BuildContext는 build 메서드에 기본 파라미터로, 자식 위젯이 부모 위젯의 context에 접근해 Theme 등 다양한 정보를 가져올 때 사용한다.<br>
 기본적으로 가까운 부모 위젯에 접근한다.
+
+## **2-4. Widget Lifecycle**
+플러터에 Stateful Widget에는 생명주기가 있다.
+
+1. initState()
+
+    initState()는 build() 메소드가 호출되기 전에 제일 먼저 호출된다.<br>
+    initState는 단 한번만 호출된다.
+
+    initState()는 부모 요소에 의존하는 데이터를 초기화하거나 context에 의존하는 것들의 데이터를 초기화할 때 사용할 수 있다.
+2. dispose()
+
+    dispose() 메소드는 위젯이 스크린에서 제거될 때 호출되는 메소드이다.
