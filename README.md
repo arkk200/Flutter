@@ -246,7 +246,7 @@ clipBehavior에 Clip.hardEdge 위젯을 주면 오버플로우된 부분이 사�
 SingleChildScrollView를 사용하면 스크롤 가능한 뷰를 만들어준다.<br>
 그냥 감싸기만 하면 된다.
 
-# **2. 뽀모도로 앱**
+# **2. StateFul Widget**
 VSC에서 st만 쓰면 Statefull, Stateless 위젯을 상속받은 클래스를 자동완성해주는 옵션을 제공해준다.
 
 그리고 VSC에서 Stateless 위젯에 커서를 올리고 코드 액션 보기 버튼을 누르면 StateFull 위젯으로 바꿔주는 옵션을 보여준다.
