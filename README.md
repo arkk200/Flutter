@@ -297,3 +297,26 @@ BuildContext는 build 메서드에 기본 파라미터로, 자식 위젯이 부�
 2. dispose()
 
     dispose() 메소드는 위젯이 스크린에서 제거될 때 호출되는 메소드이다.
+
+# **3. 뽀모도로 앱**
+
+### **Flexible**
+Flexible 위젯은 하나의 박스가 공간을 차지하는 비율을 정할 수 있다.<br>
+flex 파라미터로 정할 수 있고 CSS에서 flex 컨테이너 내에 요소에 flex 속성을 지정하는 것과 비슷하다.
+
+### **Expanded**
+Expanded 위젯은 요소를 비어있는 공간까지 확장시켜준다.<br>
+CSS에서 aline-items: stretch; 속성과 비슷하다.
+
+### **Timer**
+Timer는 다트 표준 라이브러리에 들어있는 위젯이다.<br>
+Timer를 통해 정해진 간격에 한번씩 함수를 호출시킬 수 있다.<br>
+이때 Timer.periodic() 메소드가 쓰인다.
+
+Timer.periodic() 메소드는 주기마다 함수를 실행시킨다.
+```dart
+Timer Timer.periodic(Duration duration, void Function(Timer) callback)
+```
+Timer 객체를 반환하고, 첫번째 인자의 길이마다 두번째 인자에 callback 함수를 실행시킨다.
+
+반환된 timer 객체에 .cancel() 메소드를 통해 타이머를 정지시킬 수 있다.
