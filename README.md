@@ -461,3 +461,9 @@ class _NiceWidgetState extends State<NiceWidget> {
 }
 ```
 위처럼 initState()를 이용해서 해결할 수 있다.
+
+## **3-6. URL Launcher**
+url launcher는 특정 웹페이지로 이동하거나 이메일, 전화번호 앱으로 이동할 때 사용할 때 쓰는 라이브러리로 flutter 팀에서 만들었다.
+
+`launcherUrl(Uri url)` 함수로 인자에 url로 이동할 수 있고 `launcherUrlString(String urlString)` 함수로 문자열 인자값에 url로 바로 이동할 수 있다.<br>
+Future를 반환하기 때문에 async 함수내에서 await을 사용할 수 있다.
