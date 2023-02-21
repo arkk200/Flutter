@@ -349,3 +349,19 @@ http 라이브러리는 dart 팀에서 만든 라이브러리로 JS에 fetch처�
 반환받은 Response 객체에 .statusCode 프로퍼티로 http 상태코드를 볼 수 있고 데이터는 .body 프로퍼티에 담겨져 있다.
 
 http.get()으로 받은 json을 다트에 내장된 jsonDecode()함수를 이용하면 다트에서 쓸 수 있는 자료형으로 변환된다.
+
+## **3-2. FutureBuilder**
+FutureBuilder 위젯은 데이터를 fetch할 필요 없이 바로 UI에 띄울 수 있게 해주는 위젯이다.
+
+FutureBuilder에는 future라는 파라미터가 있는데 여기에 API에서 이런데서 받는 데이터를 감싼 Future 객체를 넣을 수 있고<br>
+builder에는 context와 snapshot 파라미터가 있는 함수가 들어온다.
+```dart
+FutureBuilder(
+    future: (Future객체),
+    builder: (context, snapshot) {
+
+    }
+)
+```
+builder에서 반환한 위젯이 화면에 뜨게 되고, 데이터는 snapshot에서 가져올 수 있다.<br>
+snapshot을 통해 Future의 상태를 알 수 있고 데이터를 가져올 수 있다.
