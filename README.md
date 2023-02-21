@@ -365,3 +365,34 @@ FutureBuilder(
 ```
 builder에서 반환한 위젯이 화면에 뜨게 되고, 데이터는 snapshot에서 가져올 수 있다.<br>
 snapshot을 통해 Future의 상태를 알 수 있고 데이터를 가져올 수 있다.
+
+## **3-3. ListView**
+ListView는 children 파라미터에 리스트내 요소들을 보여준다.<br>
+ListView는 스크롤이 구현돼 있다.
+
+ListView는 데이터 만큼 메모리에 공간을 차지하기 때문에 데이터가 많을 수록 비효율적이다.
+
+### **ListView.builder**
+ListView.builder()는 사용자가 보고 있는 데이터만 build하기에 유튜브나 인스타그램처럼 데이터가 무한한 앱같은 경우에 쓰기 좋다.<br>
+다음 파라미터가 존재한다.
+```dart
+ListView.builder(
+    scrollDirection: (방향),
+    itemCount: (전체 데이터 개수),
+    itemBuilder: (context, index) {}
+)
+```
+itemBuilder에는 함수가 들어가는데 두번째 인자에 index로 데이터의 인덱스를 가져올 수 있다.<br>
+index에는 현재 스크린에 보이는 위젯의 인덱스가 들어가있다.
+
+### **ListView.separated**
+ListView.separated()는 ListView.builder()에서 separatorBuilder 인자를 하나 더 작성해주면 된다.<br>
+separatorBuilder 파라미터는 함수를 인자로 받는데 이 함수가 반환하는 위젯을 리스트 아이템 사이사이에 렌더링 시켜준다.
+```dart
+ListView.separated(
+    scrollDirection: (방향),
+    itemCount: (전체 데이터 개수),
+    itemBuilder: (context, index) {},
+    separatorBuilder: (context, index) => (위젯)
+)
+```
