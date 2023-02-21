@@ -467,3 +467,34 @@ url launcher는 특정 웹페이지로 이동하거나 이메일, 전화번호 �
 
 `launcherUrl(Uri url)` 함수로 인자에 url로 이동할 수 있고 `launcherUrlString(String urlString)` 함수로 문자열 인자값에 url로 바로 이동할 수 있다.<br>
 Future를 반환하기 때문에 async 함수내에서 await을 사용할 수 있다.
+
+
+### **AppBar(actions:)**
+AppBar에 actions는 앱 바에 추가로 위젯을 달 때 사용하는 파라미터다.<br>
+위젯은 리스트 형태로 여러개 들어갈 수 있다.
+
+### **Shared Preferences**
+Shared Preferences는 핸드폰 저장소에 데이터를 담을 수 있게 해주는 라이브러리로 flutter 팀에서 만들었다.<br>
+먼저 라이브러리를 설치하고 받은 SharedPreferences 클래스의 .getInstance() 메소드를 이용하여 핸드폰 저장소와의 연결을 만들고 Future\<SharedPreferences\> 객체를 반환받는다.
+
+Future로 감싸져 있기에 async 함수 내에서 await을 사용하여 값을 SharedPreferences 객체를 가져와야한다.
+
+await과 함께 SharedPreferences 객체에 .set~~(키, 값) 메소드로 데이터를 저장할 수 있다.
+```dart
+final prefs = await SharedPreferences.getInstance();
+await prefs.setInt('키1', 1);
+await prefs.setBool('키2', true);
+await prefs.setDouble('키3', 0.1);
+await prefs.setString('키4', "ABC");
+await prefs.setStringList('키4', ["ABC", "DEF", "GHI"]);
+```
+
+가져오는 건 .get~~(키) 메소드로 가져올 수 있다.<br>
+키는 문자열 형태이다.
+```dart
+final number = prefs.setInt('키1', 1);
+final boolean = prefs.setBool('키2', true);
+final decimal = prefs.setDouble('키3', 0.1);
+final string = prefs.setString('키4', "ABC");
+final stringList = prefs.setStringList('키4', ["ABC", "DEF", "GHI"]);
+```
