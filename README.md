@@ -320,3 +320,32 @@ Timer Timer.periodic(Duration duration, void Function(Timer) callback)
 Timer 객체를 반환하고, 첫번째 인자의 길이마다 두번째 인자에 callback 함수를 실행시킨다.
 
 반환된 timer 객체에 .cancel() 메소드를 통해 타이머를 정지시킬 수 있다.
+
+# **3. 웹툰 앱**
+## **3-1. Data Fetching**
+### **Future**
+Future는 JS에 Promise와 비슷하다.<br>
+심지어 플러터도 JS처럼 async, await이 존재하는데 async는
+```dart
+void 함수명() async {
+
+}
+```
+처럼 쓴다는 것 외에는 거의 비슷하다.<br>
+Future가 JS에 Promise와 비슷하다고 했으니, async 함수에서 await과 함께 쓼 수 있다.
+
+async 함수가 반환하는 것도 JS와 비슷하게 Future를 반환한다.<br>
+때문에 async 함수가 반환하는 타입을 Future로 한 번 묶어줘야 한다.
+```dart
+Future<int> 함수명() async {
+    return 1;
+}
+```
+
+### **http 라이브러리**
+http 라이브러리는 dart 팀에서 만든 라이브러리로 JS에 fetch처럼 특정 url에 요청을 보내 데이터를 받아오는 기능을 지원한다.<br>
+
+`http.get(Uri 객체)` 처럼 쓰면 되고 Future로 감싸진 Response 객체를 반환한다.<br>
+반환받은 Response 객체에 .statusCode 프로퍼티로 http 상태코드를 볼 수 있고 데이터는 .body 프로퍼티에 담겨져 있다.
+
+http.get()으로 받은 json을 다트에 내장된 jsonDecode()함수를 이용하면 다트에서 쓸 수 있는 자료형으로 변환된다.
