@@ -425,3 +425,39 @@ MaterialPageRoute는 애니메이션이 존재하는데 fullscreenDialog 파라�
 ### **Hero**
 Hero 위젯은 스크린이 이동할 때 기존 스크린에 있던 요소를 새로운 스크린으로 이동하는 효과를 주고 싶을 때 사용한다.<br>
 기존 스크린에 있던 이미지와 새로운 스크린에 있는 이미지를 Hero 위젯으로 감싸고, tag 파라미터에 같은 값을 주기만 하면 된다.
+
+## **3-5. 프로퍼티가 있는 StatefulWidget**
+StatefulWidget의 State 클래스에서 StatefulWidget에 프로퍼티에 접근하려 widget.프로퍼티 형식으로 접근하면 된다.
+
+만약 StatelessWidget을 상속받은 클래스에 어떤 프로퍼티가 같은 클래스내에 또다른 프로퍼티를 이용하여 어떤 값을 받으면 에러가 나는데, 이를 StatefulWidget으로 변경함으로써 해결할 수 있다.
+
+예를 들어 아래와 같은 StatelessWidget이 있을 때
+```dart
+class NiceWidget extends StatelessWidget {
+    final int one = 1;
+    final int doubled_number = one * 2;
+    ...
+}
+```
+위처럼 하면 에러가 나는데
+
+StatefulWidget을 사용하면
+```dart
+class NiceWidget extends StatefulWidget {
+    final int one = 1;
+    @override
+    State<NiceWidget> createState() => _NiceWidgetState();
+}
+
+class _NiceWidgetState extends State<NiceWidget> {
+    late final doubled_number;
+
+    @override
+    void initState() {
+        super.initState();
+        doubled_number = widget.one;
+    }
+    ...
+}
+```
+위처럼 initState()를 이용해서 해결할 수 있다.
