@@ -396,3 +396,32 @@ ListView.separated(
     separatorBuilder: (context, index) => (위젯)
 )
 ```
+
+## **3-4. Route**
+
+### **Image**
+Image 위젯은 이미지를 띄워주는 위젯이다.<br>
+Image.network()는 첫번째 인자에 이미지의 주소로 이미지를 보여준다.
+
+### **GestureDetector**
+GestureDetector 위젯은 스크린에 동작을 감시하고 모든 동작들을 파라미터로 정의해둔 위젯이다.
+
+GestureDetector 위젯에 모든 동작들엔 실행시킬 함수가 들어온다.<br>
+onTap 파라미터는 손가락을 누르고 올렸을 때 함수를 실행시킨다.
+
+### **Navigator**
+Navigator 위젯은 다른 route로 전환하거나 돌아오게 만들어주는 위젯이다.
+
+.push(), .pop() 메소드를 사용할 수 있는데 이 메소드의 첫번째 인자에는 context가 들어가고 .push()는 추가로 두번째 인자에 **Route 클래스의 객체가 들어간다.**
+
+Route 클래스를 상속받은 위젯 중에 MaterialPageRoute라는 위젯이 있다.
+
+MaterialPageRoute 위젯에는 builder라는 함수를 받는 파라미터가 있는데 이 파라미터가 반환하는 위젯이 .push() 메소드로 이동하는 스크린이 된다.
+
+MaterialPageRoute는 애니메이션이 존재하는데 fullscreenDialog 파라미터를 true로 해두면 밑에서 부터 스크린이 올라온다.
+
+이때 새로운 스크린에도 Scaffold 위젯이 존재해야한다.
+
+### **Hero**
+Hero 위젯은 스크린이 이동할 때 기존 스크린에 있던 요소를 새로운 스크린으로 이동하는 효과를 주고 싶을 때 사용한다.<br>
+기존 스크린에 있던 이미지와 새로운 스크린에 있는 이미지를 Hero 위젯으로 감싸고, tag 파라미터에 같은 값을 주기만 하면 된다.
