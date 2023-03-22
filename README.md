@@ -492,9 +492,9 @@ await prefs.setStringList('키4', ["ABC", "DEF", "GHI"]);
 가져오는 건 .get~~(키) 메소드로 가져올 수 있다.<br>
 키는 문자열 형태이다.
 ```dart
-final number = prefs.setInt('키1', 1);
-final boolean = prefs.setBool('키2', true);
-final decimal = prefs.setDouble('키3', 0.1);
-final string = prefs.setString('키4', "ABC");
-final stringList = prefs.setStringList('키4', ["ABC", "DEF", "GHI"]);
+final number = prefs.getInt('키1', 1);
+final boolean = prefs.getBool('키2', true);
+final decimal = prefs.getDouble('키3', 0.1);
+final string = prefs.getString('키4', "ABC");
+final stringList = prefes.getStringList('키4', ["ABC", "DEF", "GHI"]);
 ```
